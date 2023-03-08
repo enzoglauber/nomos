@@ -1,31 +1,16 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Navigate,
-  Route,
-  RouterProvider
-} from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import Deputies from './pages/Deputies'
-import Deputy from './pages/Deputy'
-import Root from './templates/Root'
+import { RouterProvider } from 'react-router-dom'
+import router from './Router'
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Root />}>
-      <Route index element={<Navigate to="/deputados" replace />} />
-      <Route path="deputados">
-        <Route index element={<Deputies />} />
-        <Route path=":id" element={<Deputy />} />
-      </Route>
-    </Route>
-  )
-)
+const queryClient = new QueryClient()
 
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </div>
   )
 }
