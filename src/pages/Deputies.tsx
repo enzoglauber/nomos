@@ -1,26 +1,27 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
-import axios from '../config/axios'
-import { ResponseDeputados } from '../interfaces/ResponseDeputados'
-
-function fetchDeputies(page = 1) {
-  const url = `/deputados?pagina=${page}&itens=2&ordem=ASC&ordenarPor=nome`
-  return axios.get(url).then((response) => response.data)
-}
+import { useCallback } from 'react'
+import { useContextSelector } from 'use-context-selector'
+import DeputiesFilter from '../components/DeputiesFilter'
+import Pagination from '../components/Pagination'
+import { IStore, StoreContext } from '../contexts/Store'
+import useDeputies from '../hooks/useDeputies'
 
 function Deputies() {
-  const [page, setPage] = useState(1)
+  console.log(`Deputies render...`)
+  const { page, setPage } = useContextSelector(StoreContext, (store: IStore) => store)
+  const { status, data, error, isFetching, isPreviousData } = useDeputies(page)
 
-  const { status, data, error, isFetching, isPreviousData } = useQuery<ResponseDeputados, Error>({
-    queryKey: ['deputies', page],
-    queryFn: () => fetchDeputies(page),
-    staleTime: 5000
-  })
+  const changePage = useCallback(
+    (value: number) => {
+      setPage(value)
+    },
+    [setPage]
+  )
 
   return (
     <div>
       Deputies
       <hr />
+      <DeputiesFilter />
       {status === 'loading' ? (
         <div>Loading...</div>
       ) : status === 'error' ? (
@@ -32,21 +33,16 @@ function Deputies() {
           ))}
         </div>
       )}
-      <div>Current Page: {page}</div>
-      <button onClick={() => setPage((current) => current - 1)} disabled={page === 1}>
-        Previous Page
-      </button>
-      <button
-        onClick={() => {
-          setPage((current) => current + 1)
-        }}
-        disabled={isPreviousData}
-      >
-        Next Page
-      </button>
-      {isFetching ? <span> Loading...</span> : null}{' '}
+      <Pagination page={page} isPreviousData={isPreviousData} setPage={changePage} />
+      {isFetching ? <span> Loading...</span> : null}
     </div>
   )
+
+  // return (
+  //   <>
+  //     {page} <button onClick={() => setPage(page + 1)}>+1</button>
+  //   </>
+  // )
 }
 
 export default Deputies
