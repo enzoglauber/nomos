@@ -8,29 +8,28 @@ import { ResponseDeputados } from '../interfaces/ResponseDeputados'
 function fetchDeputies(page = 1, filter?: DeputiesFilter) {
   let params = ``
   const itens = 2
-  /**
-   * encodeData(data) {
-    return Object.keys(data).map(function(key) {
-        return [key, data[key]].map(encodeURIComponent).join("=");
-    }).join("&");
-}  
-   */
 
   if (filter?.deputy) {
     params += `nome=${filter?.deputy}&`
   }
+  if (filter?.party) {
+    params += `siglaPartido=${filter?.party}&`
+  }
+  if (filter?.uf) {
+    params += `siglaUf=${filter?.uf}&`
+  }
+
   const url = `/deputados?${params}pagina=${page}&itens=${itens}&ordem=ASC&ordenarPor=nome`
   return axios.get(url).then((response) => response.data)
 }
 
-const useDeputies = (page: number) => {
-  const { filter } = useContextSelector(StoreContext, (store: IStore) => store)
-  console.log('useDeputies', page)
+const useDeputies = () => {
+  const { page, filter } = useContextSelector(StoreContext, (store: IStore) => store)
+  console.log('useDeputies', page, filter)
   return useQuery<ResponseDeputados, Error>({
-    queryKey: ['deputies', page],
+    queryKey: ['deputies', page, filter],
     queryFn: () => fetchDeputies(page, filter),
     staleTime: 5000
   })
 }
-
 export default useDeputies

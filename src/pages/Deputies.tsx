@@ -1,4 +1,3 @@
-import { useCallback } from 'react'
 import { useContextSelector } from 'use-context-selector'
 import DeputiesFilter from '../components/DeputiesFilter'
 import Pagination from '../components/Pagination'
@@ -8,14 +7,7 @@ import useDeputies from '../hooks/useDeputies'
 function Deputies() {
   console.log(`Deputies render...`)
   const { page, setPage } = useContextSelector(StoreContext, (store: IStore) => store)
-  const { status, data, error, isFetching, isPreviousData } = useDeputies(page)
-
-  const changePage = useCallback(
-    (value: number) => {
-      setPage(value)
-    },
-    [setPage]
-  )
+  const { status, data, error, isFetching, isPreviousData } = useDeputies()
 
   return (
     <div>
@@ -29,11 +21,13 @@ function Deputies() {
       ) : (
         <div>
           {data.dados.map((deputy) => (
-            <p key={deputy.id}>{deputy.nome}</p>
+            <p key={deputy.id}>
+              {deputy.nome}-{deputy.siglaPartido}-{deputy.siglaUf}
+            </p>
           ))}
         </div>
       )}
-      <Pagination page={page} isPreviousData={isPreviousData} setPage={changePage} />
+      <Pagination page={page} isPreviousData={isPreviousData} setPage={setPage} />
       {isFetching ? <span> Loading...</span> : null}
     </div>
   )
