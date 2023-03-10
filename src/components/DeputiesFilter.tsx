@@ -1,3 +1,5 @@
+import { LightbulbCircleTwoTone } from '@mui/icons-material'
+import { Link, Typography } from '@mui/material'
 import { SyntheticEvent, useEffect, useState } from 'react'
 import { useContextSelector } from 'use-context-selector'
 import { IStore, StoreContext } from '../contexts/Store'
@@ -32,6 +34,11 @@ export default function DeputiesFilter() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
+          <LightbulbCircleTwoTone sx={{ mr: 1, verticalAlign: 'middle' }} />
+          Pro tip: See more <Link href="https://mui.com/getting-started/templates/">templates</Link>
+          in the MUI documentation.
+        </Typography>
         <input
           type="text"
           placeholder="Buscar por Deputado"
