@@ -1,8 +1,10 @@
 import { useContextSelector } from 'use-context-selector'
-import DeputiesFilter from '../components/DeputiesFilter'
-import Pagination from '../components/Pagination'
 import { IStore, StoreContext } from '../contexts/Store'
 import useDeputies from '../hooks/useDeputies'
+
+import DeputiesFilter from '../components/DeputiesFilter'
+import Pagination from '../components/Pagination'
+import SubHeader from '../components/SubHeader'
 
 function Deputies() {
   console.log(`Deputies render...`)
@@ -10,9 +12,8 @@ function Deputies() {
   const { status, data, error, isFetching, isPreviousData } = useDeputies()
 
   return (
-    <div>
-      Deputies
-      <hr />
+    <>
+      <SubHeader title="Deputados" subtitle="Veja abaixo a lista de deputados" />
       <DeputiesFilter />
       {status === 'loading' ? (
         <div>Loading...</div>
@@ -29,7 +30,7 @@ function Deputies() {
       )}
       <Pagination page={page} isPreviousData={isPreviousData} setPage={setPage} />
       {isFetching ? <span> Loading...</span> : null}
-    </div>
+    </>
   )
 
   // return (

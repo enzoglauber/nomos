@@ -6,7 +6,7 @@ function Root() {
   return (
     <>
       <Navbar />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ my: 6 }}>
         <main>
           <Outlet />
         </main>

@@ -13,14 +13,23 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Inter, Arial'
+    fontFamily: 'Inter, Arial',
+    h2: {
+      fontWeight: 600,
+      fontSize: '1.5rem',
+      lineHeight: '2rem'
+    },
+    subtitle2: {
+      fontWeight: 400,
+      lineHeight: '1.25rem'
+    }
   },
   palette: {
     primary: {
-      main: '#3f8ce9'
+      main: '#3F8BE9'
     },
     secondary: {
-      main: '#0b1f4d'
+      main: '#0A2156'
     },
     error: {
       main: red.A400
@@ -28,6 +37,10 @@ const theme = createTheme({
     background: {
       default: '#F9FAFC',
       paper: '#FFF'
+    },
+    text: {
+      primary: '#606162',
+      secondary: '#3F8BE9'
     }
   }
 })
