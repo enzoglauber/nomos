@@ -1,8 +1,14 @@
-import { LightbulbCircleTwoTone } from '@mui/icons-material'
-import { Link, Typography } from '@mui/material'
-import { SyntheticEvent, useEffect, useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import { useContextSelector } from 'use-context-selector'
 import { IStore, StoreContext } from '../contexts/Store'
+
+import Search from '@mui/icons-material/Search'
+import Box from '@mui/material/Box'
+import FormControl from '@mui/material/FormControl'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import InputLabel from '@mui/material/InputLabel'
+import OutlinedInput from '@mui/material/OutlinedInput'
 
 export default function DeputiesFilter() {
   console.log('DeputiesFilter render...')
@@ -12,18 +18,11 @@ export default function DeputiesFilter() {
 
   const { setFilter, setPage } = useContextSelector(StoreContext, (store: IStore) => store)
 
-  useEffect(() => {
-    submit()
-    // Because if I had add setFilter in array deeps, we'll had a loop
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [deputy, party, uf])
-
   const handleSubmit = (event: SyntheticEvent) => {
-    console.log(event, `event`)
     event.preventDefault()
 
-    console.log('form submitted ✅')
     submit()
+    console.log('form submitted ✅')
   }
 
   const submit = () => {
@@ -33,31 +32,70 @@ export default function DeputiesFilter() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
-          <LightbulbCircleTwoTone sx={{ mr: 1, verticalAlign: 'middle' }} />
-          Pro tip: See more <Link href="https://mui.com/getting-started/templates/">templates</Link>
-          in the MUI documentation.
-        </Typography>
-        <input
-          type="text"
-          placeholder="Buscar por Deputado"
-          onChange={(e) => setDeputy(e.target.value)}
-          value={deputy}
-        />
-        {deputy}
-        <input
-          type="text"
-          placeholder="Partido"
-          onChange={(e) => setParty(e.target.value)}
-          value={party}
-        />
-        {party}
-        <input type="text" placeholder="UF" onChange={(e) => setUf(e.target.value)} value={uf} />
-        {uf}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+        <form onSubmit={handleSubmit}>
+          <FormControl sx={{ width: '17.5rem', marginRight: '1.875rem' }} variant="outlined">
+            <InputLabel htmlFor="deputy" sx={{ color: 'text.primary' }}>
+              Buscar por Deputado
+            </InputLabel>
+            <OutlinedInput
+              id="deputy"
+              value={deputy}
+              label="Buscar por Deputado"
+              onChange={(e) => setDeputy(e.target.value)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton edge="end" onClick={handleSubmit}>
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
 
-        <button type="submit">OK</button>
-      </form>
+          <FormControl sx={{ width: '11.25rem', marginRight: '1.875rem' }} variant="outlined">
+            <InputLabel htmlFor="party" sx={{ color: 'text.primary' }}>
+              Partido
+            </InputLabel>
+            <OutlinedInput
+              id="party"
+              value={party}
+              label="Partido"
+              onChange={(e) => setParty(e.target.value)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton edge="end" onClick={handleSubmit}>
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+
+          <FormControl sx={{ width: '11.25rem', marginRight: '1.875rem' }} variant="outlined">
+            <InputLabel htmlFor="uf" sx={{ color: 'text.primary' }}>
+              UF
+            </InputLabel>
+            <OutlinedInput
+              id="uf"
+              value={uf}
+              label="UF"
+              onChange={(e) => setUf(e.target.value)}
+              endAdornment={
+                <InputAdornment position="end" onClick={handleSubmit}>
+                  <IconButton edge="end">
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
+
+          <button type="submit" hidden>
+            Search
+          </button>
+        </form>
+      </Box>
     </div>
   )
 }
