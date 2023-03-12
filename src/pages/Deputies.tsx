@@ -2,6 +2,7 @@ import { useContextSelector } from 'use-context-selector'
 import { IStore, StoreContext } from '../contexts/Store'
 import useDeputies from '../hooks/useDeputies'
 
+import Box from '@mui/material/Box'
 import DeputiesFilter from '../components/DeputiesFilter'
 import Pagination from '../components/Pagination'
 import SubHeader from '../components/SubHeader'
@@ -14,7 +15,9 @@ function Deputies() {
   return (
     <>
       <SubHeader title="Deputados" subtitle="Veja abaixo a lista de deputados" />
-      <DeputiesFilter />
+      <Box sx={{ display: 'flex', flexWrap: 'wrap' }} mb={7} mt={6}>
+        <DeputiesFilter />
+      </Box>
       {status === 'loading' ? (
         <div>Loading...</div>
       ) : status === 'error' ? (

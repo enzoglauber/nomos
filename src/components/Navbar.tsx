@@ -2,8 +2,9 @@ import AppBar from '@mui/material/AppBar'
 import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
+import React from 'react'
 
-export default function Navbar() {
+export default React.memo(function Navbar() {
   return (
     <Paper variant="outlined" square>
       <Container maxWidth="lg">
@@ -25,4 +26,4 @@ export default function Navbar() {
       </Container>
     </Paper>
   )
-}
+})

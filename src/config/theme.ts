@@ -2,7 +2,7 @@ import '@mui/lab/themeAugmentation'
 import { red } from '@mui/material/colors'
 import { createTheme } from '@mui/material/styles'
 
-const theme = createTheme({
+const final = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -13,6 +13,8 @@ const theme = createTheme({
     }
   },
   typography: {
+    htmlFontSize: 14,
+    fontSize: 14,
     fontFamily: 'Inter, Arial',
     h2: {
       fontWeight: 600,
@@ -42,7 +44,32 @@ const theme = createTheme({
       primary: '#606162',
       secondary: '#3F8BE9'
     }
+  },
+  components: {
+    // Name of the component
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          padding: '0.375rem 0.875rem'
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme, ownerState }) =>
+          theme.unstable_sx({
+            color: theme.palette.text.primary,
+            fontSize: '0.875rem',
+            ...(ownerState.variant === 'outlined' && {
+              transform: 'translate(16px, 10px) scale(1)',
+              ...(ownerState.shrink && {
+                transform: 'translate(15px, -9px) scale(0.95)'
+              })
+            })
+          })
+      }
+    }
   }
 })
 
-export default theme
+export default final
