@@ -21,8 +21,14 @@ const final = createTheme({
       fontSize: '1.5rem',
       lineHeight: '2rem'
     },
+    h3: {
+      fontWeight: 600,
+      fontSize: '1rem',
+      lineHeight: '1.5rem'
+    },
     subtitle2: {
       fontWeight: 400,
+      fontSize: '0.875rem',
       lineHeight: '1.25rem'
     }
   },
@@ -46,9 +52,42 @@ const final = createTheme({
     }
   },
   components: {
-    // Name of the component
+    MuiTypography: {
+      styleOverrides: {
+        root: ({ theme, ownerState }) =>
+          theme.unstable_sx({
+            ...(ownerState.variant === 'subtitle2' &&
+              ownerState.component === 'b' && {
+                fontWeight: 500
+              })
+          })
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: ({ theme, ownerState }) =>
+          theme.unstable_sx({
+            paddingLeft: '.5rem',
+            paddingRight: '.5rem',
+            ...(ownerState.size === 'small' && {
+              fontSize: '0.75rem'
+            })
+          })
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'capitalize'
+        }
+      }
+    },
     MuiOutlinedInput: {
       styleOverrides: {
+        root: ({ theme }) =>
+          theme.unstable_sx({
+            bgcolor: theme.palette.background.paper
+          }),
         input: {
           padding: '0.375rem 0.875rem'
         }

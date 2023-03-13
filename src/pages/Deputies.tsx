@@ -1,16 +1,17 @@
-import { useContextSelector } from 'use-context-selector'
-import { IStore, StoreContext } from '../contexts/Store'
-import useDeputies from '../hooks/useDeputies'
-
 import Box from '@mui/material/Box'
+
+import { useContextSelector } from 'use-context-selector'
 import DeputiesFilter from '../components/DeputiesFilter'
+import DeputiesList from '../components/DeputiesList'
 import Pagination from '../components/Pagination'
 import SubHeader from '../components/SubHeader'
+import { IStore, StoreContext } from '../contexts/Store'
+import useDeputies from '../hooks/useDeputies'
 
 function Deputies() {
   console.log(`Deputies render...`)
   const { page, setPage } = useContextSelector(StoreContext, (store: IStore) => store)
-  const { status, data, error, isFetching, isPreviousData } = useDeputies()
+  const { status, data, error, isPreviousData } = useDeputies()
 
   return (
     <>
@@ -23,24 +24,11 @@ function Deputies() {
       ) : status === 'error' ? (
         <div>Error: {error.message}</div>
       ) : (
-        <div>
-          {data.dados.map((deputy) => (
-            <p key={deputy.id}>
-              {deputy.nome}-{deputy.siglaPartido}-{deputy.siglaUf}
-            </p>
-          ))}
-        </div>
+        <DeputiesList data={data.dados} />
       )}
       <Pagination page={page} isPreviousData={isPreviousData} setPage={setPage} />
-      {isFetching ? <span> Loading...</span> : null}
     </>
   )
-
-  // return (
-  //   <>
-  //     {page} <button onClick={() => setPage(page + 1)}>+1</button>
-  //   </>
-  // )
 }
 
 export default Deputies
