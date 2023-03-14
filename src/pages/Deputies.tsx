@@ -10,8 +10,11 @@ import useDeputies from '../hooks/useDeputies'
 
 function Deputies() {
   console.log(`Deputies render...`)
-  const { page, setPage } = useContextSelector(StoreContext, (store: IStore) => store)
-  const { status, data, error, isPreviousData } = useDeputies()
+  const { page, items, setPage, setItems } = useContextSelector(
+    StoreContext,
+    (store: IStore) => store
+  )
+  const { status, data, error } = useDeputies()
 
   return (
     <>
@@ -26,7 +29,15 @@ function Deputies() {
       ) : (
         <DeputiesList data={data.dados} />
       )}
-      <Pagination page={page} isPreviousData={isPreviousData} setPage={setPage} />
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }} mt={5}>
+        <Pagination
+          page={page}
+          items={items}
+          setPage={setPage}
+          links={data?.links}
+          setItems={setItems}
+        />
+      </Box>
     </>
   )
 }

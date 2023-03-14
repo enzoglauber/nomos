@@ -5,9 +5,8 @@ import { IStore, StoreContext } from '../contexts/Store'
 import { DeputiesFilter } from '../interfaces/DeputiesFilter'
 import { ResponseDeputados } from '../interfaces/ResponseDeputados'
 
-function fetchDeputies(page = 1, filter?: DeputiesFilter) {
+function fetchDeputies(page = 1, items: string, filter?: DeputiesFilter) {
   let params = ``
-  const itens = 2
 
   if (filter?.deputy) {
     params += `nome=${filter?.deputy}&`
@@ -19,16 +18,15 @@ function fetchDeputies(page = 1, filter?: DeputiesFilter) {
     params += `siglaUf=${filter?.uf}&`
   }
 
-  const url = `/deputados?${params}pagina=${page}&itens=${itens}&ordem=ASC&ordenarPor=nome`
+  const url = `/deputados?${params}pagina=${page}&itens=${items}&ordem=ASC&ordenarPor=nome`
   return axios.get(url).then((response) => response.data)
 }
 
 const useDeputies = () => {
-  const { page, filter } = useContextSelector(StoreContext, (store: IStore) => store)
-  console.log('useDeputies', page, filter)
+  const { page, filter, items } = useContextSelector(StoreContext, (store: IStore) => store)
   return useQuery<ResponseDeputados, Error>({
-    queryKey: ['deputies', page, filter],
-    queryFn: () => fetchDeputies(page, filter),
+    queryKey: ['deputies', page, items, filter],
+    queryFn: () => fetchDeputies(page, items, filter),
     staleTime: 5000
   })
 }
