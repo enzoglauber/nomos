@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
 
 import { useContextSelector } from 'use-context-selector'
 import DeputiesFilter from '../components/DeputiesFilter'
@@ -18,26 +19,28 @@ function Deputies() {
 
   return (
     <>
-      <SubHeader title="Deputados" subtitle="Veja abaixo a lista de deputados" />
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }} mb={7} mt={6}>
-        <DeputiesFilter />
-      </Box>
-      {status === 'loading' ? (
-        <div>Loading...</div>
-      ) : status === 'error' ? (
-        <div>Error: {error.message}</div>
-      ) : (
-        <DeputiesList data={data.dados} />
-      )}
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }} mt={5}>
-        <Pagination
-          page={page}
-          items={items}
-          setPage={setPage}
-          links={data?.links}
-          setItems={setItems}
-        />
-      </Box>
+      <Container maxWidth="lg" sx={{ my: 6 }}>
+        <SubHeader title="Deputados" subtitle="Veja abaixo a lista de deputados" />
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }} mb={7} mt={6}>
+          <DeputiesFilter />
+        </Box>
+        {status === 'loading' ? (
+          <div>Loading...</div>
+        ) : status === 'error' ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          <DeputiesList data={data.dados} />
+        )}
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }} mt={5}>
+          <Pagination
+            page={page}
+            items={items}
+            setPage={setPage}
+            links={data?.links}
+            setItems={setItems}
+          />
+        </Box>
+      </Container>
     </>
   )
 }
