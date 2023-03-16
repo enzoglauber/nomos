@@ -1,13 +1,12 @@
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import CardHeader from '@mui/material/CardHeader'
 import Typography from '@mui/material/Typography'
 import { useLocation, useParams } from 'react-router-dom'
 
+import RowLabelValue from '../components/RowLabelValue'
 import useDeputy from '../hooks/useDeputy'
 import BoxContainer from '../templates/BoxContainer'
 
@@ -21,6 +20,15 @@ function Deputy() {
         new Date(data?.dados.ultimoStatus.data || '').getFullYear() + 4
       }`
     : ''
+  const address =
+    data?.dados.ultimoStatus.gabinete.nome === 'null'
+      ? `
+        ${data?.dados.ultimoStatus.gabinete.nome} - 
+        ${data?.dados.ultimoStatus.gabinete.predio} - 
+        ${data?.dados.ultimoStatus.gabinete.sala} - 
+        ${data?.dados.ultimoStatus.gabinete.andar}
+      `
+      : '-'
   return (
     <>
       <BoxContainer>
@@ -78,24 +86,16 @@ function Deputy() {
             }
           />
           <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              {data?.dados.nomeCivil}
-            </Typography>
-            <Typography variant="h5" component="div">
-              legal {id}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
+            <RowLabelValue label={'Nome Civil:'} value={data?.dados.nomeCivil} />
+            <RowLabelValue label={'Email:'} value={data?.dados.ultimoStatus.email} />
+            <RowLabelValue label={'Telefone:'} value={data?.dados.ultimoStatus.gabinete.telefone} />
+            <RowLabelValue label={'Endereço:'} value={address} />
+            <RowLabelValue label={'Nascimento:'} value={data?.dados.dataNascimento} />
+            <RowLabelValue
+              label={'Naturalidade:'}
+              value={`${data?.dados.municipioNascimento} - ${data?.dados.ufNascimento}`}
+            />
           </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
         </Card>
       </BoxContainer>
     </>
