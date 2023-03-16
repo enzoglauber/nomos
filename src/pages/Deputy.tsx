@@ -20,6 +20,7 @@ function Deputy() {
         new Date(data?.dados.ultimoStatus.data || '').getFullYear() + 4
       }`
     : ''
+
   const address =
     data?.dados.ultimoStatus.gabinete.nome === 'null'
       ? `
@@ -29,6 +30,10 @@ function Deputy() {
         ${data?.dados.ultimoStatus.gabinete.andar}
       `
       : '-'
+
+  const bday = data?.dados.dataNascimento
+    ? new Date(data?.dados.dataNascimento).toLocaleDateString('pt-br')
+    : null
   return (
     <>
       <BoxContainer>
@@ -90,7 +95,7 @@ function Deputy() {
             <RowLabelValue label={'Email:'} value={data?.dados.ultimoStatus.email} />
             <RowLabelValue label={'Telefone:'} value={data?.dados.ultimoStatus.gabinete.telefone} />
             <RowLabelValue label={'Endereço:'} value={address} />
-            <RowLabelValue label={'Nascimento:'} value={data?.dados.dataNascimento} />
+            <RowLabelValue label={'Nascimento:'} value={bday} />
             <RowLabelValue
               label={'Naturalidade:'}
               value={`${data?.dados.municipioNascimento} - ${data?.dados.ufNascimento}`}
