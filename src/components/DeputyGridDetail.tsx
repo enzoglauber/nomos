@@ -1,10 +1,10 @@
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { Deputado } from '../interfaces/Deputado'
+import { Deputados } from '../interfaces/Deputados'
 
 interface DeputyGridDetailProps {
-  deputy: Deputado
+  deputy: Deputados
 }
 
 export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
@@ -24,7 +24,7 @@ export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
           Deputado Federal
         </Typography>
       </Grid>
-      <Grid item xs spacing={2}>
+      <Grid item xs>
         <span>
           <Typography variant="subtitle2" gutterBottom color="text.primary" component={'b'}>
             Partido:

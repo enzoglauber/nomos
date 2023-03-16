@@ -1,11 +1,17 @@
+import { UltimoStatus } from './UltimoStatus'
+
 export interface Deputado {
-  email: string
   id: number
-  idLegislatura: number
-  nome: string
-  siglaPartido: string
-  siglaUf: string
   uri: string
-  uriPartido: string
-  urlFoto: string
+  nomeCivil: string
+  ultimoStatus: UltimoStatus
+  cpf: string
+  sexo: string
+  urlWebsite?: any
+  redeSocial: any[]
+  dataNascimento: string
+  dataFalecimento?: any
+  ufNascimento: string
+  municipioNascimento: string
+  escolaridade?: any
 }

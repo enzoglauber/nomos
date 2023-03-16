@@ -49,7 +49,8 @@ const final = createTheme({
     text: {
       primary: '#606162',
       secondary: '#3F8BE9'
-    }
+    },
+    divider: '#E6E8F0'
   },
   components: {
     MuiTypography: {

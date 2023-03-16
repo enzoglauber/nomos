@@ -1,9 +1,8 @@
 import Avatar from '@mui/material/Avatar'
-import React from 'react'
 
-import { Deputado } from '../interfaces/Deputado'
+import { Deputados } from '../interfaces/Deputados'
 interface DeputyGridAvatarProps {
-  deputy: Deputado
+  deputy: Deputados
 }
 
 export default function DeputyGridAvatar({ deputy }: DeputyGridAvatarProps) {

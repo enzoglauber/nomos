@@ -5,12 +5,12 @@ import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import { Link } from 'react-router-dom'
 
-import { Deputado } from '../interfaces/Deputado'
+import { Deputados } from '../interfaces/Deputados'
 import DeputyGridAvatar from './DeputyGridAvatar'
 import DeputyGridDetail from './DeputyGridDetail'
 
 interface DeputiesListProps {
-  data?: Deputado[]
+  data?: Deputados[]
 }
 
 export default function DeputiesList({ data }: DeputiesListProps) {
@@ -37,6 +37,7 @@ export default function DeputiesList({ data }: DeputiesListProps) {
               <Button
                 component={Link}
                 to={`/deputados/${deputy.id}`}
+                state={{ deputy }}
                 variant="contained"
                 size="small"
                 endIcon={<NorthEastIcon />}
