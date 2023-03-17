@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react'
-import RowLabelValue from './RowLabelValue'
+import RowLabelValue, { RowLabelValueProps } from './RowLabelValue'
 
 export default {
   title: 'Components/RowLabelValue',
   component: RowLabelValue,
   args: {
-    label: 'label',
-    value: 'value'
+    label: 'Label:',
+    value: 'Value'
   }
-} as Meta
+} as Meta<RowLabelValueProps>
 
-export const Default: StoryObj = {}
+export const Default: StoryObj<RowLabelValueProps> = {}

@@ -14,9 +14,7 @@ export default function DeputiesFilter() {
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault()
-
     submit()
-    console.log('form submitted ✅')
   }
 
   const submit = () => {

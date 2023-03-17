@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography'
 
-interface SubHeaderProps {
+export interface SubHeaderProps {
   title: string
   subtitle: string
 }

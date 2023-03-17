@@ -6,7 +6,7 @@ import InputLabel from '@mui/material/InputLabel'
 import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput'
 import React from 'react'
 
-interface SubHeaderProps extends OutlinedInputProps {
+export interface SubHeaderProps extends OutlinedInputProps {
   onClickSearch?: React.MouseEventHandler<HTMLButtonElement> | undefined
 }
 

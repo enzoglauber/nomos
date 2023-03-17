@@ -1,7 +1,10 @@
+// import { themes } from '@storybook/theming'
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import { initialize, mswDecorator } from 'msw-storybook-addon'
+
 import React from 'react'
+
 import theme from '../src/config/theme'
-/* snipped for brevity */
 
 export const withMuiTheme = (Story) => (
   <ThemeProvider theme={theme}>
@@ -10,7 +13,10 @@ export const withMuiTheme = (Story) => (
   </ThemeProvider>
 )
 
-export const decorators = [withMuiTheme]
+// Initialize MSW
+initialize()
+
+export const decorators = [withMuiTheme, mswDecorator]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -20,4 +26,7 @@ export const parameters = {
       date: /Date$/
     }
   }
+  // docs: {
+  //   theme: themes.dark
+  // }
 }
