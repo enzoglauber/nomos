@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 
-interface RowLabelValueProps {
+export interface RowLabelValueProps {
   label: string
   value?: string
 }
