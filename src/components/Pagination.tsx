@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { Link } from '../interfaces/Link'
-interface PaginationProps extends Pick<IStore, 'page' | 'items' | 'setPage' | 'setItems'> {
+export interface PaginationProps extends Pick<IStore, 'page' | 'items' | 'setPage' | 'setItems'> {
   links?: Link[]
 }
 

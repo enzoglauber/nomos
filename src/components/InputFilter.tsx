@@ -4,13 +4,12 @@ import IconButton from '@mui/material/IconButton'
 import InputAdornment from '@mui/material/InputAdornment'
 import InputLabel from '@mui/material/InputLabel'
 import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput'
-import React from 'react'
 
-export interface SubHeaderProps extends OutlinedInputProps {
-  onClickSearch?: React.MouseEventHandler<HTMLButtonElement> | undefined
+export interface InputFilterProps extends OutlinedInputProps {
+  onClickSearch?: () => void
 }
 
-export default function InputFilter({ id, label, sx, onClickSearch, ...props }: SubHeaderProps) {
+export default function InputFilter({ id, label, sx, onClickSearch, ...props }: InputFilterProps) {
   return (
     <FormControl sx={sx} variant="outlined">
       <InputLabel htmlFor={id}>{label}</InputLabel>
