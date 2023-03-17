@@ -18,11 +18,23 @@ export default {
   },
 
   argTypes: {
+    page: {
+      description: 'Índice da paginação.'
+    },
+    items: {
+      description: 'Quantidade de itens por página.'
+    },
+    links: {
+      description:
+        'Array\\<Object\\> da lista de links da api para identificar a quantidade total de páginas.'
+    },
     setPage: {
-      type: 'function'
+      type: 'function',
+      description: 'Função para alterar o índice da paginação.'
     },
     setItems: {
-      type: 'function'
+      type: 'function',
+      description: 'Função para alterar a quantidade de itens por página.'
     }
   }
 } as Meta<PaginationProps>
