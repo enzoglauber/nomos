@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
@@ -8,10 +9,10 @@ const rootElement = document.getElementById('root') as HTMLElement
 const root = ReactDOM.createRoot(rootElement!)
 
 root.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <App />
-  </ThemeProvider>
-  // <React.StrictMode>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
 )

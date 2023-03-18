@@ -6,7 +6,7 @@ import React from 'react'
 
 export default React.memo(function Navbar() {
   return (
-    <Paper variant="outlined" square>
+    <Paper variant="outlined" square data-testid="navbar">
       <Container maxWidth="lg">
         <AppBar position="static" color="transparent" elevation={0}>
           <Typography
