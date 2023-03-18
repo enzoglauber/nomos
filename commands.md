@@ -6,3 +6,5 @@ If you hit an ERR_OSSL_EVP_UNSUPPORTED error in your application with Node.js 17
 
 //  Storybook addons to mock http requests (https://storybook.js.org/addons/msw-storybook-addon)
 > npm i msw msw-storybook-addon -D
+> npm i storybook-addon-react-router-v6 --save-dev
+

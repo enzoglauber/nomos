@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { Deputados } from '../interfaces/Deputados'
 
-interface DeputyGridDetailProps {
+export interface DeputyGridDetailProps {
   deputy: Deputados
 }
 

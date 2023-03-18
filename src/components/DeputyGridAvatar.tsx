@@ -1,7 +1,7 @@
 import Avatar from '@mui/material/Avatar'
 
 import { Deputados } from '../interfaces/Deputados'
-interface DeputyGridAvatarProps {
+export interface DeputyGridAvatarProps {
   deputy: Deputados
 }
 

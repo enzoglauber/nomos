@@ -1,7 +1,6 @@
 // import { themes } from '@storybook/theming'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { initialize, mswDecorator } from 'msw-storybook-addon'
-
 import React from 'react'
 
 import theme from '../src/config/theme'

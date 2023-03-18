@@ -9,7 +9,7 @@ import { Deputados } from '../interfaces/Deputados'
 import DeputyGridAvatar from './DeputyGridAvatar'
 import DeputyGridDetail from './DeputyGridDetail'
 
-interface DeputiesListProps {
+export interface DeputiesListProps {
   data?: Deputados[]
 }
 

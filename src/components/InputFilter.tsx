@@ -4,9 +4,10 @@ import IconButton from '@mui/material/IconButton'
 import InputAdornment from '@mui/material/InputAdornment'
 import InputLabel from '@mui/material/InputLabel'
 import OutlinedInput, { OutlinedInputProps } from '@mui/material/OutlinedInput'
+import { SyntheticEvent } from 'react'
 
 export interface InputFilterProps extends OutlinedInputProps {
-  onClickSearch?: () => void
+  onClickSearch?: (e: SyntheticEvent) => void
 }
 
 export default function InputFilter({ id, label, sx, onClickSearch, ...props }: InputFilterProps) {

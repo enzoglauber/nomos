@@ -5,7 +5,6 @@ import { IStore, StoreContext } from '../contexts/Store'
 import InputFilter from './InputFilter'
 
 export default function DeputiesFilter() {
-  console.log('DeputiesFilter render...')
   const [deputy, setDeputy] = useState('')
   const [party, setParty] = useState('')
   const [uf, setUf] = useState('')
