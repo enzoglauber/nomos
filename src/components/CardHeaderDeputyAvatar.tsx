@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 
 import { Deputado } from '../interfaces/Deputado'
 
-interface CardHeaderDeputyAvatarProps {
+export interface CardHeaderDeputyAvatarProps {
   deputy?: Deputado
 }
 
