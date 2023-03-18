@@ -8,3 +8,8 @@ If you hit an ERR_OSSL_EVP_UNSUPPORTED error in your application with Node.js 17
 > npm i msw msw-storybook-addon -D
 > npm i storybook-addon-react-router-v6 --save-dev
 
+// https://codingwithmanny.medium.com/quick-jest-setup-with-vitejs-react-typescript-82f325e4323f
+> npm i jest @types/jest -D
+> npm install -D @testing-library/react @testing-library/jest-dom @testing-library/user-event
+> npx jest --init
+> npm i ts-node -D
