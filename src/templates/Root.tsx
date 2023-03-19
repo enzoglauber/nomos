@@ -5,7 +5,7 @@ function Root() {
   return (
     <>
       <Navbar />
-      <main>
+      <main data-testid="outlet">
         <Outlet />
       </main>
     </>

@@ -1,12 +1,12 @@
 import { Box } from '@mui/material'
 import React from 'react'
 
-interface BoxContainerProps {
+export interface BoxContainerProps {
   children: React.ReactNode
   color?: string
 }
 
-export default function BoxContainer({ children, color = 'primary.main' }: BoxContainerProps) {
+function BoxContainer({ children, color = 'primary.main' }: BoxContainerProps) {
   return (
     <Box>
       <Box sx={{ backgroundColor: color, height: '15.75rem' }} />
@@ -14,3 +14,5 @@ export default function BoxContainer({ children, color = 'primary.main' }: BoxCo
     </Box>
   )
 }
+
+export default BoxContainer
