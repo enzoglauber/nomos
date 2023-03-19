@@ -23,9 +23,4 @@ describe('RowLabelValue', () => {
     expect(label?.textContent).toBe('label')
     expect(value?.textContent).toBe('-')
   })
-
-  // test('there should be a outlet component', () => {
-  //   const element = screen.queryByTestId('outlet')
-  //   expect(element).toBeTruthy()
-  // })
 })
