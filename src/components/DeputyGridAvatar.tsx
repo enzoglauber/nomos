@@ -5,12 +5,15 @@ export interface DeputyGridAvatarProps {
   deputy: Deputados
 }
 
-export default function DeputyGridAvatar({ deputy }: DeputyGridAvatarProps) {
+function DeputyGridAvatar({ deputy }: DeputyGridAvatarProps) {
   return (
     <Avatar
       alt={deputy.nome}
       src={deputy.urlFoto}
       sx={{ width: 56, height: 56, border: '1px solid', borderColor: 'primary.main' }}
+      data-testid="deputy-grid-avatar"
     />
   )
 }
+
+export default DeputyGridAvatar

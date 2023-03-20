@@ -10,7 +10,7 @@ export interface UltimoStatus {
   idLegislatura: number
   urlFoto: string
   email: string
-  data: string
+  data?: string
   nomeEleitoral: string
   gabinete: Gabinete
   situacao: string

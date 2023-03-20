@@ -8,15 +8,16 @@ export interface CardHeaderDeputyAvatarProps {
   deputy?: Deputado
 }
 
-export default function CardHeaderDeputyAvatar({ deputy }: CardHeaderDeputyAvatarProps) {
+function CardHeaderDeputyAvatar({ deputy }: CardHeaderDeputyAvatarProps) {
   const period = deputy?.ultimoStatus.data
-    ? `${new Date(deputy?.ultimoStatus.data || '').getFullYear()} - ${
-        new Date(deputy?.ultimoStatus.data || '').getFullYear() + 4
+    ? `${new Date(deputy?.ultimoStatus.data).getFullYear()} - ${
+        new Date(deputy?.ultimoStatus.data).getFullYear() + 4
       }`
     : ''
 
   return (
     <Box
+      data-testid="card-header-deputy-avatar"
       sx={{
         marginLeft: 2,
         display: 'flex',
@@ -27,6 +28,7 @@ export default function CardHeaderDeputyAvatar({ deputy }: CardHeaderDeputyAvata
       <Avatar
         alt={deputy?.nomeCivil}
         src={deputy?.ultimoStatus.urlFoto}
+        data-testid="card-header-deputy-avatar-picture"
         sx={{
           width: 130,
           height: 130,
@@ -38,10 +40,21 @@ export default function CardHeaderDeputyAvatar({ deputy }: CardHeaderDeputyAvata
       <Typography variant="subtitle2" gutterBottom color="primary">
         Deputado Federal
       </Typography>
-      <Typography variant="h3" gutterBottom color="secondary">
+      <Typography
+        variant="h3"
+        gutterBottom
+        color="secondary"
+        data-testid="card-header-deputy-avatar-name"
+      >
         {deputy?.ultimoStatus.nome}
       </Typography>
-      <Typography variant="subtitle2" gutterBottom color="secondary" sx={{ fontSize: '1rem' }}>
+      <Typography
+        variant="subtitle2"
+        gutterBottom
+        color="secondary"
+        sx={{ fontSize: '1rem' }}
+        data-testid="card-header-deputy-avatar-party"
+      >
         Partido: {deputy?.ultimoStatus.siglaPartido}
       </Typography>
       <Typography
@@ -51,8 +64,10 @@ export default function CardHeaderDeputyAvatar({ deputy }: CardHeaderDeputyAvata
         sx={{ textTransform: 'uppercase' }}
       >
         {`${deputy?.ultimoStatus.condicaoEleitoral} em ${deputy?.ultimoStatus.situacao} `}
-        <span className="period">{`${period}`}</span>
+        <span data-testid="card-header-deputy-avatar-period">{`${period}`}</span>
       </Typography>
     </Box>
   )
 }
+
+export default CardHeaderDeputyAvatar
