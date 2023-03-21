@@ -7,11 +7,17 @@ export interface DeputyGridDetailProps {
   deputy: Deputados
 }
 
-export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
+function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
   return (
-    <Grid item xs container direction="column" spacing={0}>
+    <Grid item xs container direction="column" spacing={0} data-testid="deputy-grid-detail">
       <Grid item xs>
-        <Typography variant="h3" gutterBottom color="secondary" component={'span'}>
+        <Typography
+          variant="h3"
+          gutterBottom
+          color="secondary"
+          component={'span'}
+          data-testid="deputy-grid-detail-name"
+        >
           {deputy.nome}
         </Typography>
         <Typography
@@ -35,6 +41,7 @@ export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
             color="primary"
             marginRight={3}
             component={'span'}
+            data-testid="deputy-grid-detail-party"
           >
             {' '}
             {deputy.siglaPartido}
@@ -50,6 +57,7 @@ export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
             color="primary"
             marginRight={3}
             component={'span'}
+            data-testid="deputy-grid-detail-uf"
           >
             {' '}
             {deputy.siglaUf}
@@ -60,3 +68,5 @@ export default function DeputyGridDetail({ deputy }: DeputyGridDetailProps) {
     </Grid>
   )
 }
+
+export default DeputyGridDetail
