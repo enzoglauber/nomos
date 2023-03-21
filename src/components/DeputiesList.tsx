@@ -13,17 +13,17 @@ export interface DeputiesListProps {
   data?: Deputados[]
 }
 
-export default function DeputiesList({ data }: DeputiesListProps) {
+function DeputiesList({ data }: DeputiesListProps) {
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2} data-testid="deputy-list">
       {data?.map((deputy) => (
-        <Paper elevation={0} key={deputy.id} sx={{ p: 2 }}>
+        <Paper elevation={0} key={deputy.id} sx={{ p: 2 }} data-testid="deputy-list-item">
           <Grid container spacing={4}>
             <Grid item>
-              <DeputyGridAvatar deputy={deputy} />
+              <DeputyGridAvatar deputy={deputy} data-testid="deputy-list-item-avatar" />
             </Grid>
             <Grid item xs={6} container>
-              <DeputyGridDetail deputy={deputy} />
+              <DeputyGridDetail deputy={deputy} data-testid="deputy-list-item-detail" />
             </Grid>
             <Grid
               item
@@ -40,6 +40,7 @@ export default function DeputiesList({ data }: DeputiesListProps) {
                 state={{ deputy }}
                 variant="contained"
                 size="small"
+                data-testid="deputy-list-item-link"
                 endIcon={<NorthEastIcon />}
               >
                 Detalhes
@@ -51,3 +52,5 @@ export default function DeputiesList({ data }: DeputiesListProps) {
     </Stack>
   )
 }
+
+export default DeputiesList
