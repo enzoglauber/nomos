@@ -23,7 +23,7 @@ export default function DeputiesFilter() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="deputies-filter">
         <InputFilter
           id="deputy"
           value={deputy}
