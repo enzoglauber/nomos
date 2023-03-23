@@ -10,7 +10,6 @@ import { IStore, StoreContext } from '../contexts/Store'
 import useDeputies from '../hooks/useDeputies'
 
 function Deputies() {
-  console.log(`Deputies render...`)
   const { page, items, setPage, setItems } = useContextSelector(
     StoreContext,
     (store: IStore) => store

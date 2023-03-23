@@ -4,11 +4,14 @@ import { initialize, mswDecorator } from 'msw-storybook-addon'
 import React from 'react'
 
 import theme from '../src/config/theme'
+import Store from '../src/contexts/Store'
 
 export const withMuiTheme = (Story) => (
   <ThemeProvider theme={theme}>
-    <CssBaseline />
-    {Story()}
+    <Store>
+      <CssBaseline />
+      {Story()}
+    </Store>
   </ThemeProvider>
 )
 

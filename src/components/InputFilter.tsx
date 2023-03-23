@@ -10,7 +10,7 @@ export interface InputFilterProps extends OutlinedInputProps {
   onClickSearch?: (e: SyntheticEvent) => void
 }
 
-export default function InputFilter({ id, label, sx, onClickSearch, ...props }: InputFilterProps) {
+function InputFilter({ id, label, sx, onClickSearch, ...props }: InputFilterProps) {
   return (
     <FormControl sx={sx} variant="outlined">
       <InputLabel htmlFor={id}>{label}</InputLabel>
@@ -29,3 +29,5 @@ export default function InputFilter({ id, label, sx, onClickSearch, ...props }: 
     </FormControl>
   )
 }
+
+export default InputFilter
