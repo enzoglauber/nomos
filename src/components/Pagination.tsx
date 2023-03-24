@@ -1,24 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { IStore } from '../contexts/Store'
-
 import { Box, Grid, Pagination as MUIPagination, Typography } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 import MenuItem from '@mui/material/MenuItem'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
+import React, { useEffect, useState } from 'react'
+
+import { IStore } from '../contexts/Store'
 import { Link } from '../interfaces/Link'
 export interface PaginationProps extends Pick<IStore, 'page' | 'items' | 'setPage' | 'setItems'> {
   links?: Link[]
 }
 
-export default React.memo(function Pagination({
-  page,
-  items,
-  links,
-  setPage,
-  setItems
-}: PaginationProps) {
+function Pagination({ page, items, links, setPage, setItems }: PaginationProps) {
   const [count, setCount] = useState(1)
-
   const counters = [...new Array(10)].map((value, index) => `${index + 1}`)
 
   const handleChangeItems = (event: SelectChangeEvent) => {
@@ -39,7 +32,7 @@ export default React.memo(function Pagination({
   }, [links])
 
   return (
-    <Grid container spacing={4} direction="row">
+    <Grid container spacing={4} direction="row" data-testid="pagination">
       <Grid item sx={{ display: 'flex', flexWrap: 'wrap' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <MUIPagination
@@ -48,6 +41,7 @@ export default React.memo(function Pagination({
             color="primary"
             page={page}
             boundaryCount={0}
+            data-testid="pagination-input"
             onChange={(e, current) => setPage(current)}
           />
         </Box>
@@ -56,7 +50,13 @@ export default React.memo(function Pagination({
             Itens por página:
           </Typography>
           <FormControl sx={{ ml: 1, minWidth: 60 }} size="small">
-            <Select labelId="items" id="items" value={items} onChange={handleChangeItems}>
+            <Select
+              labelId="items"
+              id="items"
+              value={items}
+              onChange={handleChangeItems}
+              data-testid="pagination-select"
+            >
               {counters.map((item) => (
                 <MenuItem key={item} value={item} sx={{ display: 'flex' }}>
                   <Typography variant="subtitle2" color="secondary" sx={{ marginTop: '3px' }}>
@@ -70,4 +70,5 @@ export default React.memo(function Pagination({
       </Grid>
     </Grid>
   )
-})
+}
+export default React.memo(Pagination)
