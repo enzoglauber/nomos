@@ -20,7 +20,7 @@ export function fetchDeputies(page = 1, items: string, filter?: DeputiesFilter) 
   return axios.get(url).then((response) => response.data)
 }
 
-const useDeputies = (
+export const useDeputies = (
   page: number = 1,
   filter: DeputiesFilter = { party: '', deputy: '', uf: '' },
   items: string = '10'
@@ -31,4 +31,3 @@ const useDeputies = (
     staleTime: 5000
   })
 }
-export default useDeputies

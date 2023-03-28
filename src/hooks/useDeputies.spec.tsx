@@ -6,7 +6,7 @@ import { describe } from 'vitest'
 
 import nock from 'nock'
 import Store from '../contexts/Store'
-import useDeputies from './useDeputies'
+import { useDeputies } from './useDeputies'
 
 interface QueryClientWrapperProps {
   children: ReactNode

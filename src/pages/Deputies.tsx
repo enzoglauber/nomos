@@ -7,7 +7,7 @@ import DeputiesList from '../components/DeputiesList'
 import Pagination from '../components/Pagination'
 import SubHeader from '../components/SubHeader'
 import { IStore, StoreContext } from '../contexts/Store'
-import useDeputies from '../hooks/useDeputies'
+import { useDeputies } from '../hooks/useDeputies'
 
 function Deputies() {
   const { page, items, filter, setPage, setItems } = useContextSelector(
@@ -15,20 +15,19 @@ function Deputies() {
     (store: IStore) => store
   )
 
-  const { status, data, error } = useDeputies(page, filter, items)
-  console.log(status, error)
+  const { isError, isLoading, data, error } = useDeputies(page, filter, items)
+  console.log(isLoading, isError, data, error)
   return (
     <>
       <Container maxWidth="lg" sx={{ my: 6 }} data-testid="deputies">
-        {status}LEGALLLLLLLLLLLLLL
         <SubHeader title="Deputados" subtitle="Veja abaixo a lista de deputados" />
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }} mb={7} mt={6}>
           <DeputiesFilter />
         </Box>
-        {status === 'loading' ? (
+        {isLoading ? (
           <div data-testid="deputies-loading">Loading...</div>
-        ) : status === 'error' ? (
-          <div data-testid="deputies-error">Error: {error.message}</div>
+        ) : isError ? (
+          <div data-testid="deputies-error">Error</div>
         ) : (
           <DeputiesList data={data.dados} data-testid="deputies-list" />
         )}
