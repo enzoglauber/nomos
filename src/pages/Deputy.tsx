@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import CardHeaderDeputyAvatar from '../components/CardHeaderDeputyAvatar'
 
 import RowLabelValue from '../components/RowLabelValue'
-import useDeputy from '../hooks/useDeputy'
+import { useDeputy } from '../hooks/useDeputy'
 import BoxContainer from '../templates/BoxContainer'
 
 function Deputy() {
