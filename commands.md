@@ -13,3 +13,6 @@ If you hit an ERR_OSSL_EVP_UNSUPPORTED error in your application with Node.js 17
 > npm i @testing-library/jest-dom @testing-library/react jsdom -D
 > npm i -D @vitest/ui
 > npm install --save-dev nock
+
+// e2e
+npm install cypress -D
