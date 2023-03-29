@@ -95,7 +95,7 @@ const mock = { isLoading: true, data: getData() } as unknown as QueryObserverLoa
 >
 
 describe('Deputy', () => {
-  describe('flux', () => {
+  describe('flow', () => {
     beforeEach(() => {
       vi.spyOn(api, 'useDeputy').mockImplementation(() => mock)
     })
