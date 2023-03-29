@@ -1,7 +1,8 @@
 import {
   QueryClient,
   QueryClientProvider,
-  QueryObserverLoadingErrorResult
+  QueryObserverLoadingErrorResult,
+  QueryObserverLoadingResult
 } from '@tanstack/react-query'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
@@ -52,7 +53,7 @@ describe('Deputies', () => {
           dados: [],
           links: [{}]
         }
-      })
+      } as unknown as QueryObserverLoadingResult<ResponseDeputados, Error>)
 
       render(
         <Store>

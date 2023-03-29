@@ -1,5 +1,5 @@
 export interface Gabinete {
-  nome: string
+  nome?: string
   predio: string
   sala: string
   andar: string

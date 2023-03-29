@@ -15,8 +15,7 @@ function Deputies() {
     (store: IStore) => store
   )
 
-  const { isError, isLoading, data, error } = useDeputies(page, filter, items)
-  console.log(isLoading, isError, data, error)
+  const { isError, isLoading, data } = useDeputies(page, filter, items)
   return (
     <>
       <Container maxWidth="lg" sx={{ my: 6 }} data-testid="deputies">

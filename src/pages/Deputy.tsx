@@ -12,17 +12,16 @@ function Deputy() {
   const { id } = useParams()
   const { data } = useDeputy(id)
 
-  const address =
-    data?.dados.ultimoStatus.gabinete.nome !== null
-      ? `
+  const address = data?.dados.ultimoStatus.gabinete.nome
+    ? `
         ${data?.dados.ultimoStatus.gabinete.sala} - 
         ${data?.dados.ultimoStatus.gabinete.predio} - 
         ${data?.dados.ultimoStatus.gabinete.andar}
       `
-      : '-'
+    : '-'
 
   const bday = data?.dados.dataNascimento
-    ? new Date(data?.dados.dataNascimento).toLocaleDateString('pt-br')
+    ? new Date(data?.dados.dataNascimento).toLocaleDateString()
     : undefined
 
   return (
@@ -37,7 +36,7 @@ function Deputy() {
             sx={{ borderBottom: '1px solid', borderColor: 'divider', flexDirection: 'column' }}
             avatar={<CardHeaderDeputyAvatar deputy={data?.dados} />}
           />
-          <CardContent>
+          <CardContent data-testid="deputy-card-content">
             <RowLabelValue label={'Nome Civil:'} value={data?.dados.nomeCivil} />
             <RowLabelValue label={'Email:'} value={data?.dados.ultimoStatus.email} />
             <RowLabelValue label={'Telefone:'} value={data?.dados.ultimoStatus.gabinete.telefone} />
