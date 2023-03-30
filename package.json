@@ -48,6 +48,7 @@
     "@vitest/coverage-c8": "^0.29.3",
     "@vitest/ui": "^0.29.3",
     "babel-loader": "^8.3.0",
+    "cypress": "^12.9.0",
     "eslint": "^8.35.0",
     "eslint-plugin-storybook": "^0.6.11",
     "jsdom": "^21.1.1",
