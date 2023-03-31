@@ -74,4 +74,4 @@ npm run cypress
 - https://mui.com/material-ui/customization/theming/
 
 ---
-Made with ❤️ by [Enzo Glauber](https://www.linkedin.com/in/enzoglauber/)
+Made with ❤️ by [Enzo Glauber](https://www.linkedin.com/in/enzo-glauber/)
