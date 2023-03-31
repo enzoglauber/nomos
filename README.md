@@ -1,49 +1,78 @@
+# 🚀 Desafio Frontend
 
-[![License](https://camo.githubusercontent.com/11ead5f9f63a32c56b6558ec9cbfb25540fd265b6fbab25b51cb6925d2519ddb/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f657870726573732e737667)](https://github.com/TarikHuber/react-most-wanted/master/LICENSE) [![Code Style](https://camo.githubusercontent.com/c0486311910977832125780d8ef9ac681614939bd1b9328678007156a4648896/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64655f7374796c652d70726574746965722d6666363962342e7376673f7374796c653d666c61742d737175617265)](https://github.com/prettier/prettier)
+Desenvolver as telas ao lado seguindo as melhores práticas de desenvolvimento de software. Avaliaremos como você trabalha a construção dos componentes visando reutilização e performance, extrando o máximo do React.
+# 🧠 Contexto
 
-# Getting Started with Create React App
+- [x] Catálogo de deputados com paginação
+- [x] Filtragem deputados por nome, partido e uf
+- [x] Quantidade de deputados por pagina
+- [x] Página detalhada do deputado
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🤖 Rodando a aplicação
 
-## Available Scripts
+- Application with [Vite](https://vitejs.dev/):
+```bach
+npm install
+```
+```bach
+npm run dev
+```
+<img src="./public/git/deputies.png" height="460px" alt="Protótipo da página de deputados" />
+<img src="./public/git/deputy.png" height="460px" alt="Protótipo da página de detalhe do deputado"/>
 
-In the project directory, you can run:
+- Test with [Vitest](https://github.com/vitest-dev/vitest):
+```bach
+npm run test
+```
+<img src="./public/git/vitest.png" height="460px" alt="Print da Tela do Vitest UI" />
 
-### `npm start`
+- Coverage with [Vitest](https://github.com/vitest-dev/vitest):
+```bach
+npm run coverage
+```
+<img src="./public/git/coverage.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Storybook](https://storybook.js.org/):
+```bach
+$env:NODE_OPTIONS="--openssl-legacy-provider"
+```
+you need to run the bash above if you had using node version > 19 at powershell
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bach
+npm run storybook
+```
+<img src="./public/git/storybook.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
-### `npm test`
+- e2e with [Cypress](https://www.cypress.io/):
+```bach
+npm run cypress
+```
+<img src="./public/git/cypress.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📋 Instruções
 
-### `npm run build`
+1. Código deve estar em Typescript
+2. Teste unitário (Jest) e Teste E2E (Cypress)
+3. Utilizar o use-context-selector para lidar com as properties
+4. Utilizar o Storybook para documentar os componentes
+5. Utilizar ESlint para análise de código estático
+6. Utilizar o TanStackQuery para as chamadas de API
+7. Seguir o styleguide a baixo priorizando a criação de temas no MUI
+8. Seguir o protótipo do [Figma](https://www.figma.com/file/2niNjUpbG4I522HzeyZsnA/Teste-Nomos?node-id=1-2&t=Ss5wEaKV9ID942H2-0)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📰 API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- https://dadosabertos.camara.leg.br/swagger/api.html
+- Listagem de deputados --> /deputados
+- Dados do deputado --> /deputados/:id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📖 Referências
 
-### `npm run eject`
+- https://blog.openreplay.com/react-architecture-patterns-for-your-projects
+- https://andela.com/insights/structuring-your-react-application-atomic-design-principles/
+- https://www.npmjs.com/package/use-context-selector
+- https://tanstack.com/query/v4/docs/react/overview
+- https://mui.com/material-ui/customization/theming/
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+Made with ❤️ by [Enzo Glauber](https://www.linkedin.com/in/enzoglauber/)

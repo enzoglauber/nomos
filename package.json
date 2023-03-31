@@ -10,7 +10,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "cypress": "npx cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
