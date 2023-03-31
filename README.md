@@ -17,7 +17,7 @@ npm install
 ```bach
 npm run dev
 ```
-<img src="./public/git/deputies.png" height="435px" alt="Protótipo da página de deputados" /><img src="./public/git/deputy.png" height="435px" alt="Protótipo da página de detalhe do deputado"/>
+<img src="./public/git/deputies.png" height="420px" alt="Protótipo da página de deputados" /><img src="./public/git/deputy.png" height="420px" alt="Protótipo da página de detalhe do deputado"/>
 
 - Test with [Vitest](https://github.com/vitest-dev/vitest):
 ```bach
@@ -29,7 +29,7 @@ npm run test
 ```bach
 npm run coverage
 ```
-<img src="./public/git/coverage.png" height="500px" alt="Print da Tela do Vitest Coverage v8" />
+<img src="./public/git/coverage.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
 - [Storybook](https://storybook.js.org/):
 ```bach
@@ -40,13 +40,13 @@ you need to run the bash above if you had using node version > 19 at powershell
 ```bach
 npm run storybook
 ```
-<img src="./public/git/storybook.png" height="500px" alt="Print da Tela do Vitest Coverage v8" />
+<img src="./public/git/storybook.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
 - e2e with [Cypress](https://www.cypress.io/):
 ```bach
 npm run cypress
 ```
-<img src="./public/git/cypress.png" height="500px" alt="Print da Tela do Vitest Coverage v8" />
+<img src="./public/git/cypress.png" height="460px" alt="Print da Tela do Vitest Coverage v8" />
 
 ## 📋 Instruções
 
